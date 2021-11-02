@@ -33,73 +33,73 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h5>Basic Componant</h5>
-                            </div>
+                          
                             <div class="card-body">
-                                <h5>Form controls</h5>
+                                <h5>Register</h5>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                            </div>
-                                            <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+
+<!--[Will start with the form posting from here]-->
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    
+                    <div class="form-group">
+                        <label> Name</label>
+                            <input type="text" id="name" name ="name" class='form-control' placeholder="Name type here" autofocus="autofocus" value={{userfm1.name}}>
+                                
+                    </div>
+                                            
+                    <div class="form-group">
+                        <label>Email</label>
+                            <input type="email" id="email" name="email" class='form-control' placeholder="Name email here" autofocus="autofocus" value={{userfm1.email}}>
+                                
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>City</label>
+                            <input type="city" id="city" name="city" class='form-control' placeholder="Enter your city" autofocus="autofocus" value={{userfm1.city}}>
+                    </div>
+                    
+                    
+                                            
                                         </form>
                                     </div>
-                                    <div class="col-md-6">
-                                        <form>
-                                            <div class="form-group">
-                                                <label>Text</label>
-                                                <input type="text" class="form-control" placeholder="Text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlSelect1">Example select</label>
-                                                <select class="form-control" id="exampleFormControlSelect1">
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlTextarea1">Example textarea</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <h5 class="mt-5">Sizing</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input class="mb-3 form-control form-control-lg" type="text" placeholder=".form-control-lg">
-                                        <input class="mb-3 form-control" type="text" placeholder="Default input">
-                                        <input class="mb-3 form-control form-control-sm" type="text" placeholder=".form-control-sm">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <select class="mb-3 form-control form-control-lg">
-                                            <option>Large select</option>
-                                        </select>
-                                        <select class="mb-3 form-control">
-                                            <option>Default select</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <h5 class="mt-5">Inline</h5>
-                                <hr>
+                 
+                                     
+                          
+               <!--[This is the right coloumn card we will upload the the rest of registration fields here]-->           
+                <div class="col-md-6"> 
+                    <form method="POST" enctype="multipart/form-data">
+                    
+                    
+                    <div class="form-group">
+                        <label>Number</label>
+                           <input type="number" id="number" name="number" class='form-control' placeholder="Name number here" autofocus="autofocus" value={{userfm1.number}}>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Address</label>
+                            <input type="textarea" id="address"  name="address" class='form-control' placeholder="Enter the right details" autofocus="autofocus" value={{userfm1.address}}> 
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                           <input type="city" id="location" name="location" class='form-control' placeholder="Please give up your location" autofocus="autofocus" value={{userfm1.location}}>
+                    </div>
+                </form>  
+              </div>
+            </div>
+          <div class="d-grid gap-2">
+  <button href="/"class="btn btn-primary" type="button">Submit</button>
+ 
+</div>      
+        <h5 class="mt-5">Inline</h5>
+    <hr>
+                                                
+                     
+                     
                                 <form class="form-inline">
                                     <div class="form-group mb-2">
                                         <label for="staticEmail2" class="sr-only">Email</label>

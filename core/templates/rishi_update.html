@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <br>
+        <div class="container">
+            <h2>Update Form</h2>
+                <br>
+                    <br> 
+                        <label> Name</label>
+                            <input type="text" id="name" name ="name" class='form-control' placeholder="Name type here" autofocus="autofocus" value={{ris.name}}>
+                        <label> email</label>
+                            <input type="email" id="email" name="email" class='form-control' placeholder="Name email here" autofocus="autofocus" value={{ris.email}}>
+                        <label> address</label>
+                            <input type="address" id="address"  name="address" class='form-control' placeholder="Please fill" autofocus="autofocus" value={{ris.address}}>   
+                        <label>city</label>
+                            <input type="city" id="city" name="city" class='form-control' placeholder="Enter your city" autofocus="autofocus" value={{ris.city}}}}>
+                        
+                        <label>maritialstatus:</label><br>
+                            <input type="radio" name="maritialstatus" id="Married" value="Married"{% if ris.maritialstatus == "Married" or ris.maritialstatus == "married" %} checked {% endif %}
+                            <label for="Married">Married</label> <br>
+                              <input type="radio" name="maritialstatus" id="Unmarried" value="Unmarried"{% if ris.maritialstatus == "Unmarried" or ris.maritialstatus == "unmarried"%} checked {% endif %}
+                            <label for="Unmarried">Unmarried</label> <br>
+                              <input type="radio" name="maritialstatus" id="engaged" value="engaged"{% if ris.maritialstatus == "engaged" or ris.maritialstatus == "Engaged"%} checked {% endif %}
+                            <label for="enaged">engaged</label> <br>
+                        
+                       
+                        <label>Phone Number:</label>
+                            <input type="number" id="contactno" name="contactno" class='form-control' placeholder="Name number here" autofocus="autofocus" value={{ris.contactno}}>
+                        
+                        <label for="image">Profile Pic:</label>{{ris.image}}
+                            <input type="file" id="image" name="image" class="form-control" accept="image/*" placeholder="image"><br>
+                        
+                        <label for="biodata"> Drop your Documents  here:</label>
+                            <input type="file" id="biodata" name="biodata" class="form-control"><br>
+                      
+                        <input href="" class="btn btn-primary" type="submit" value="submit" </input>
+                        
+
+</form>
+{% endblock content%}
+
+
+
+

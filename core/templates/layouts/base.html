@@ -12,6 +12,7 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
     <!-- Meta -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,10 +38,21 @@
 
 <body>
 
+
+    <!--[Posting my Station form here]-->   
+   
+
+
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
+            <h2> Portfolio</h2><br>
+            <form method="POST" enctype="multipart/form-data"
+                   {% csrf_token%}
+                    {{ form.as_p }}
+        <input type="submit" name="submit">
+        </form>
         </div>
     </div>    
     
@@ -52,16 +64,25 @@
 
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
+            
+            
+            {% block content %}
 
-            {% block content %}{% endblock content %}
+
+            
+            <!--[This is the main body content for the other templates of their own]-->
+            
+            
+            
+            {% endblock content %}
 
         </div>
     </div>
 
     {% include 'includes/scripts.html' %}
-
     <!-- Specific Page JS goes HERE  -->
     {% block javascripts %}{% endblock javascripts %}
-
+</form>
+</div>
 </body>
 </html>

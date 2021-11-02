@@ -31,11 +31,12 @@ def login_view(request):
                 msg = 'Invalid credentials'    
         else:
             msg = 'Error validating the form'    
-
     return render(request, "accounts/login.html", {"form": form, "msg" : msg})
 
-def register_user(request):
 
+
+
+def register_user(request):
     msg     = None
     success = False
 
@@ -58,3 +59,8 @@ def register_user(request):
         form = SignUpForm()
 
     return render(request, "accounts/register.html", {"form": form, "msg" : msg, "success" : success })
+
+
+
+
+

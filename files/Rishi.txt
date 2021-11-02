@@ -1,0 +1,21 @@
+Models: Data info is contained within the models. Models map to the single db table present within the admin 
+
+-> Model is a python class that subclasses django.db.models.Model
+-> Each attribute of the model represents a db model
+-> Django gives an automatically genrated db-access API
+
+
+{% extends 'app1.index.html' %}
+
+{% block title %} Contact us- My Mr. White Store {% endblock %}
+{% block body %}
+
+
+
+
+
+
+
+
+
+{% endblock %}
