@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Album example · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Favicons -->
+  </head>
+  <body>
+{% for i in prod_get reversed%}
+<div class="card mb-3">
+  <img src="{{i.primage.url}}" class="card-img-top" alt="product Image">
+  <div class="card-body">
+    <h5 class="card-title">{{i.prname}}</h5>
+    <p class="card-text">{{i.prdesc}}</p>
+    <p class="card-text"><small class="text-muted">{{i.prprice}}</small></p>
+  </div>
+</div>
+{% endfor%}
+      
+  </body>
+</html>
