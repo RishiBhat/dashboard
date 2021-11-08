@@ -8,4 +8,7 @@ urlpatterns = [
     path('cxdash/', views.cxdash, name="cxdash"),
     path('', views.customerapp, name="customerapp"),
     path('product_inventory/', views.product_inventory, name="product_inventory"),
+    path('contact/', views.contact, name="contact"),
+    path('checkout/<int:id>', views.checkout, name="checkout"),
+    
 ]

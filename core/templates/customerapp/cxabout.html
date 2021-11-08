@@ -56,7 +56,7 @@ https://templatemo.com/tm-547-real-dynamic
                                         <a class="nav-link tm-nav-link" href="product_inventory">Product Inventory</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link tm-nav-link" href="customerapp/product_contact">Contact</a>
+                                        <a class="nav-link tm-nav-link" href="contact">Contact</a>
                                     </li>
                                 </ul>
                                 <!-- Links -->
@@ -123,11 +123,10 @@ https://templatemo.com/tm-547-real-dynamic
                                 <img src="{{i.primage.url}}" alt="Image" class="img-fluid">
                                 <figcaption>
                                     <div class="tm-member-social">
-                                        <a href="https://facebook.com" class="tm-member-social-link"><i class="fab fa-facebook tm-member-social-icon"></i></a>
-                                        <a href="https://twitter.com" class="tm-member-social-link"><i class="fab fa-twitter tm-member-social-icon"></i></a>
-                                        <a href="https://youtube.com" class="tm-member-social-link"><i class="fab fa-youtube tm-member-social-icon"></i></a>
-                                        <a href="https://instagram.com" class="tm-member-social-link"><i class="fab fa-instagram tm-member-social-icon"></i></a>
+
+                                     
                                     </div>
+                                
                                 </figcaption>
                             </figure>
                         
@@ -138,10 +137,9 @@ https://templatemo.com/tm-547-real-dynamic
                             </div>
                         </div>
                 {% endfor %}
-
-
-
-
+                    <button  type="button" class="btn btn-danger btn-lg btn-block my-2">
+                    		<a style="color:black;" href="{% url 'product_inventory' %}" >Inventory</a>
+                	</button>   
                       
                     </div>
                 </div>

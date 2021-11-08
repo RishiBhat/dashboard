@@ -76,12 +76,23 @@
                         <tr class="unread">                              
                             <td>
                                 <img class="rounded-circle" style="width:40px;" src="{{j.primage.url}}" alt="activity-user">
+                          
+
+                            <td>
+                               <p class="m-0">{{j.prname}}</p>
+                            </td>
+                          
                             <td>
                                  
                                      <a href="{% url 'product_quickview' j.id%}" class="label theme-bg text-white f-12">Product Quickview</a> 
-                                    <p class="m-0">{{j.prname}}</p>
-                            
-                             <td>
+                               
+                            </td>
+
+                          
+                            <th>Quantity<td><p class="m-0">{{j.prqty}}</p></td>  </th> 
+                         
+                           
+                            <td>
                                    <a href="{% url 'product_update' j.id%}" class="label theme-bg text-white f-12">Edit</a> 
                              
                              <td> 

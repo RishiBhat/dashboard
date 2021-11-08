@@ -50,7 +50,7 @@ class Product(models.Model):
     prdesc=models.CharField(max_length=5000)
     primage=models.ImageField(upload_to='image/', default='')
     prdate_time=models.DateTimeField(auto_now_add=True, null=True)
-
+    prqty=models.IntegerField(default=50)
 
     def __str__(self):
         return self.prname

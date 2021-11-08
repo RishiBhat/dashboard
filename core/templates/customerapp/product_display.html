@@ -10,22 +10,26 @@
     <title>Album example · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+    
 
     <!-- Bootstrap core CSS -->
-
+  
 
     <!-- Favicons -->
   </head>
   <body>
 {% for i in prod_get reversed%}
 <div class="card mb-3">
-  <img src="{{i.primage.url}}" class="card-img-top" alt="product Image">
-  <div class="card-body">
-    <h5 class="card-title">{{i.prname}}</h5>
-    <p class="card-text">{{i.prdesc}}</p>
-    <p class="card-text"><small class="text-muted">{{i.prprice}}</small></p>
+  <img src="{{i.primage.url}}" class="card-img-top my-2" alt="product Image"><br>
+  <div class="card-body"><br>
+    <h5 class="card-title">{{i.prname}}</h5><br>
+    <p class="card-text">{{i.prdesc}}</p><br>
+    <p class="card-text"><small class="text-muted">{{i.prprice}}</small></p><br> 
+<a href="/customerapp/cxdash" class="btn btn-info" role="button">Place Order</a>
   </div>
 </div>
+
+            
 {% endfor%}
       
   </body>
