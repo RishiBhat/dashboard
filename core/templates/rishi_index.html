@@ -76,8 +76,6 @@
                         <tr class="unread">                              
                             <td>
                                 <img class="rounded-circle" style="width:40px;" src="{{j.primage.url}}" alt="activity-user">
-                          
-
                             <td>
                                <p class="m-0">{{j.prname}}</p>
                             </td>
@@ -107,6 +105,41 @@
                                 </div>
                             </div>
                         </div>
+
+<!--[Now we are adding the order upadates over here]-->
+                    <div class="row">
+                        <div class="col-xl-8 col-md-6">
+                            <div class="card Recent-Users ">
+                                
+                                <div class="card-header">
+                                    <h5>My Orders</h5>
+                                </div>
+                                
+                                <div class="card-block px-0 py-3">
+                                    <div class="table-responsive ">
+                                        <table class="table table-hover text-white bg-dark">            
+                                            <tbody>
+                        <!--[Here we are displaying our Order updates]-->
+                                                  {% for k in ordr reversed%}
+                        <tr class="unread">                                  
+                            <td>
+                               <p class="m-0">{{k.email}}</p>
+                            </td>
+                          
+                            <td>
+                                {{k.order_id}}    
+                            </td> 
+                            
+
+                            <td> 
+                                     <a href="{% url 'customer_order' k.order_id%}" class="label theme-bg text-white f-12">Quickview</a>
+                            </td>                           
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            </tbody>
+                                        </table>
+
                         <!--[ Recent Users ] end-->
 
                         <!-- [ statistics year chart ] start -->

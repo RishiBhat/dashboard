@@ -58,7 +58,7 @@ def register(request):
 
 from .models import Station, Product
 from .forms import ProductForm, StationForm 
-
+from customerapp.models import OrderUpdate, Orders
 #This is the user profile formm which is been made here , now  I will post the query here
 
 def user_profile(request):
@@ -76,15 +76,15 @@ def dashboard(request):
   
   #This is for the user object display, we declare different variables
     disck= Station.objects.all()
-    
+
+#This is for the orders display
+    ordr=Orders.objects.all()
+  
   #This is for the products display  
     prdisck=Product.objects.all()
+    return render(request,'rishi_index.html',{'disck': disck,'prdisck':prdisck, 'ordr':ordr })
 
-
-
-    return render(request,'rishi_index.html',{'disck': disck,'prdisck':prdisck })
-
-
+ 
 def update(request,id):
         takidd = Station.objects.get(id=id) 
         
@@ -117,8 +117,6 @@ def product_form(request):
     return render(request,'product_form.html', {'prform':prform })
 
 
-
-
 def product_update(request,id):
     prodid=Product.objects.get(id=id)
     prform = ProductForm(instance=prodid, data=request.POST or None, files=request.FILES or None)
@@ -145,9 +143,16 @@ def product_quickview(request,id):
     prolist=Product.objects.get(id=id)
     return render(request, 'prolist.html',{'prolist':prolist})
 
-
-
 #include here to map the products for the cx
 def product_display(request):
     showpr= Product.objects.all()   
     return render(request,'product_display.html',{'showpr':showpr})
+
+
+#including order details of cx
+def customer_order(request,order_id):
+
+    cxor=Orders.objects.get(order_id=order_id)    
+    print("================================================>", cxor.order_id)
+    
+    return render(request,'customer_order.html', {'cxor':cxor})

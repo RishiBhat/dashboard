@@ -28,12 +28,15 @@ urlpatterns = [
     path('product_update/<int:id>',views.product_update,name="product_update"),
     path('product_delete/<int:id>',views.product_delete,name="product_delete"),
     path('product_quickview/<int:id>',views.product_quickview,name="product_quickview"),
-
+    
 
     #with this url we map to get the products for the cx
 
     path('cxdashboard/',views.product_display,name="product_display"),
 
+    #this path gives us the quickview of the orders by the cx
+
+    path('customer_order/<int:order_id>',views.customer_order, name="customer_order"),
 
 
 

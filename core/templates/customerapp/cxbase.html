@@ -14,30 +14,62 @@
   </style>
   </head>
   <body>
+  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/customerapp">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/store">Home</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+{% if user.is_authenticated %}
+        <ul class="navbar-nav mr-2">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href='cxdash/' id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/logout">Logout</a>
+
+                    </div>
+            </li>
+        </ul>
+      </div>
+    {% else %}
+  <!-- Button to  trigger Login modal -->
+        <button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#loginModal">
+            Login
+                <a class="navbar-brand" href="/"></a>
+        </button>
+
+<button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#loginModal">
+            Logout 
+                <a class="navbar-brand" href="/customerapp"></a>
+        </button>
+<button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal">
+SignUp
+</button>
+{% endif %}
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
    
       <li class="nav-item active">
-        <a class="nav-link" href="/customerapp/checkout/{{params.id}}">Checkout</a>
+        <a class="nav-link" href="/customerapp/checkout/{{points.id}}">Checkout</a>
       </li>
     </ul>
+      
     <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
 sagittis lacus vel augue laoreet rutrum faucibus.">
 
 
   Cart(<span id="cart">0</span>)
 </button>
+
   </div>
 </nav>
 
-  {% block body %} {% endblock %}
+  {% block body %} 
+
+  {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.js"

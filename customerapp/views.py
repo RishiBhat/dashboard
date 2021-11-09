@@ -10,6 +10,9 @@ from app.models import Product
 from app.forms import ProductForm
 from math import ceil
 from django.contrib.auth.decorators import login_required
+from .models import Orders, OrderUpdate 
+from customerapp.forms import OrdersForm, OrderUpdareForm
+
 
 # Create your views here.
 
@@ -45,6 +48,10 @@ def contact(request):
 def cxdash(request):
     allProds = []
     catprods = Product.objects.values('prtype','id')
+    quantity=Product.objects.all()
+    for i in quantity:
+        print("============================================================================================>>>>>>>>>>>>>>>>>>>>>>>",i.prqty)
+    
     cats = {item['prtype'] for item in catprods}
     for cat in cats:
         prd = Product.objects.filter(prtype=cat)
@@ -52,6 +59,7 @@ def cxdash(request):
         nSlides = n // 4 + ceil((n / 4) - (n // 4))
         allProds.append([prd, range(1, nSlides), nSlides])
     points = {'allProds': allProds}
+    
     return render(request, 'customerindex.html', points)
   
 
@@ -88,11 +96,15 @@ def register(request):
         return HttpResponse("404 - Not found")
 
 
-def login(request):
+def login_temp(request):
     if request.method == "POST":
         # Get the post parameters
-        loginusername = request.POST['loginusername']
-        loginpassword = request.POST['loginpassword']
+        # username = form.cleaned_data.get("username")
+        # password = form.cleaned_data.get("password")
+        loginusername = request.POST['username']
+        loginpassword = request.POST['password']
+        print('------------------', loginusername)
+        print('++++++++++++++++++', loginpassword)
 
         user = authenticate(username=loginusername, password=loginpassword)
         if user is not None:
@@ -111,13 +123,15 @@ def logout(request):
     return redirect('cxdash')
 
 
-def checkout(request, id):
-    gt = Product.objects.all()
-    for i in gt:
-        print("================================================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",i.id)
-    if request.method == 'POST':
-        prqty = request.POST['prqty']
-    if len(prqty) > 10:
-        messages.error(request, "Your added quantity can not be satisfied")
-        return redirect('cxdash')
-    return render(request, 'customerapp/checkout.html', {'gt': gt})
+def checkout(request):
+    if request.method=="POST":
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        order = Orders(name=name, email=email)
+        order.save()
+        update = OrderUpdate(order_id=order.order_id, update_desc="The order has been placed")
+        update.save()
+        thank = True
+        return render(request, 'customerapp/checkout.html', {'thank':thank, 'id': id})
+    return render(request, 'customerapp/checkout.html')
+    
